@@ -1,13 +1,13 @@
 #! /bin/bash
 hsName="[hooks]"
-basedir=~/project/babylon/
+basedir=[YOU MERCURIAL PROJECT DIR]
 hgrc=$basedir/.hg/hgrc
 
 if [[ ! -z "$@" ]]; then
   basedir=$1
 fi
 if [[ ! -d "$basedir" ]]; then
-    echo "Babylon directory doesnt find, specify it as input parameter"
+    echo "project directory doesnt find, specify it as input parameter"
 	exit 1;
 fi
 
@@ -18,9 +18,9 @@ if [ -z "$hsExists" ]; then
 	echo -e "$hsName\n" >> $hgrc
 fi
 
-echo "Add jshint precommit hook hook to $hgrc"
+echo "Add jshint precommit hook to $hgrc"
 sed /jshintcheck/d -i  $hgrc
-sed '/\[hooks\]/a precommit.jshintcheck = python:~/project/babylon/.hg/jshintcheck.py:check' -i $hgrc
+sed '/\[hooks\]/a precommit.jshintcheck = python:$basedir/.hg/jshintcheck.py:check' -i $hgrc
 
 sudo npm install --global jshint
 sudo apt-get install python
