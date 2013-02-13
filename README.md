@@ -1,7 +1,7 @@
 mercurial-jshint-hook
 =====================
 Automatically sets the mercurial precommit hook for repo located in  $basedir.
-Hook use jshint and checks each javascript file on the missing semicolon and extra commas.
+Hook use jshint and checks each javascript file on precommit for the missing semicolon and extra commas.
 
 Install
 =====================
